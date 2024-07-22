@@ -1,0 +1,808 @@
+/* Réinitialisation des marges, des rembourrages et de la boîte de modèle */
+* {
+    margin: 0; /* Aucune marge */
+    padding: 0; /* Aucun rembourrage */
+    box-sizing: border-box; /* Inclure les bordures et les rembourrages dans la largeur et la hauteur */
+}
+
+/* Styles pour le corps de la page */
+body {
+    font-family: 'playfair display', serif; /* Police de caractères */
+    line-height: 1.6; /* Hauteur de ligne */
+    color: #333; /* Couleur du texte */
+    background-color: #f9f9f9; /* Couleur de fond */
+}
+
+/* Styles pour l'en-tête */
+header {
+    background-color: #333; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    padding: 1rem 0; /* Rembourrage haut/bas de 1rem, aucun à gauche/droite */
+    text-align: center; /* Alignement du texte */
+}
+
+
+/* Styles pour la navigation */
+header nav {
+    display: flex; /* Utilisation d'un modèle flexbox */
+    justify-content: space-between; /* Espace égal entre les éléments */
+    align-items: center; /* Alignement vertical */
+    max-width: 1200px; /* Largeur maximale */
+    margin: 0 auto; /* Centrer horizontalement */
+    padding: 0 2rem; /* Rembourrage gauche/droite */
+}
+
+/* Styles pour le logo dans la navigation */
+header nav img {
+    height: 50px; /* Hauteur de l'image */
+}
+
+/* Styles pour la liste de navigation */
+header nav ul {
+    list-style: none; /* Pas de puces */
+    display: flex; /* Utilisation d'un modèle flexbox */
+}
+
+header nav ul li {
+    margin-left: 2rem; /* Marge à gauche entre les éléments de liste */
+}
+
+header nav ul li a {
+    color: #fff; /* Couleur du texte */
+    text-decoration: none; /* Pas de soulignement */
+    font-weight: bold; /* Police en gras */
+    transition: color 0.3s; /* Transition de couleur */
+}
+
+header nav ul li a:hover
+header nav ul li a.active {
+    color: #f4b400; /* Couleur du texte au survol ou lorsque actif */
+}
+
+/* Styles pour la bannière */
+.banner {
+    background-color: #333; /* Couleur de fond */
+    background-size: cover; /* Redimensionner pour couvrir */
+    background-position: center; /* Position du fond */
+    color: #fff; /* Couleur du texte */
+    text-align: center; /* Alignement du texte */
+    padding: 5rem 2rem; /* Rembourrage */
+}
+
+.banner h1 {
+    font-size: 3rem; /* Taille de police */
+    margin-bottom: 1rem; /* Marge inférieure */
+    transition: color 0.3s; /* Transition de couleur */
+    opacity: 0; /* Opacité initiale */
+    transform: translateY(-20px); /* Translation vers le haut */
+    animation: fadeIn 1s forwards; /* Animation de fondu */
+    animation-delay: 0.5s; /* Délai d'animation */
+}
+
+.banner p {
+    font-size: 1.2rem; /* Taille de police */
+    margin-bottom: 2rem; /* Marge inférieure */
+    transition: color 0.3s; /* Transition de couleur */
+    opacity: 0; /* Opacité initiale */
+    transform: translateY(-20px); /* Translation vers le haut */
+    animation: fadeIn 1s forwards; /* Animation de fondu */
+    animation-delay: 1s; /* Délai d'animation */
+}
+
+.banner h1:hover,
+.banner p:hover {
+    color: #e09e00; /* Couleur du texte au survol */
+}
+
+.banner .btn {
+    background-color: #f4b400; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    padding: 0.75rem 1.5rem; /* Rembourrage */
+    text-decoration: none; /* Pas de soulignement */
+    border-radius: 5px; /* Bordure arrondie */
+    font-weight: bold; /* Police en gras */
+    transition: background-color 0.3s; /* Transition de couleur de fond */
+}
+
+.banner .btn:hover {
+    background-color: #e09e00; /* Couleur de fond au survol */
+}
+
+/* Animation pour la bannière */
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Opacité totale */
+        transform: translateY(0); /* Pas de translation */
+    }
+}
+
+/* Styles pour la section "À propos" */
+#about {
+    background-color: #fff; /* Couleur de fond */
+    padding: 4rem 2rem; /* Rembourrage */
+    text-align: center; /* Alignement du texte */
+}
+
+#about h2 {
+    font-size: 2rem; /* Taille de police */
+    margin-bottom: 1rem; /* Marge inférieure */
+    color: #333; /* Couleur du texte */
+    transition: color 0.3s; /* Transition de couleur */
+}
+
+#about p {
+    font-size: 1rem; /* Taille de police */
+    margin-bottom: 2rem; /* Marge inférieure */
+    color: #666; /* Couleur du texte */
+    transition: color 0.3s; /* Transition de couleur */
+}
+
+#about span {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#about span.show {
+    opacity: 1;
+}
+
+#about h2:hover,
+#about p:hover {
+    color: #444; /* Couleur du texte au survol */
+}
+
+#about .btn {
+    background-color: #333; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    padding: 0.75rem 1.5rem; /* Rembourrage */
+    text-decoration: none; /* Pas de soulignement */
+    border-radius: 5px; /* Bordure arrondie */
+    font-weight: bold; /* Police en gras */
+    transition: background-color 0.3s; /* Transition de couleur de fond */
+}
+
+#about .btn:hover {
+    background-color: #444; /* Couleur de fond au survol */
+}
+
+#aboutMoreBtn {
+    margin-top: 100px; /* Ajustez la marge selon vos besoins */
+}
+
+
+/* Styles pour les widgets */
+.widgets {
+    display: flex; /* Utilisation d'un modèle flexbox */
+    flex-wrap: wrap; /* Permettre le retour à la ligne */
+    justify-content: center; /* Centrer horizontalement */
+    gap: 2rem; /* Espace entre les éléments */
+    padding: 4rem 2rem; /* Rembourrage */
+    background-color: #f1f1f1; /* Couleur de fond */
+}
+
+.widget {
+    background-color: #fff; /* Couleur de fond */
+    border: 1px solid #ddd; /* Bordure */
+    border-radius: 10px; /* Bordure arrondie */
+   
+}
+
+.widget {
+    background-color: #fff; /* Couleur de fond */
+    border: 1px solid #ddd; /* Bordure */
+    border-radius: 10px; /* Bordure arrondie */
+    overflow: hidden; /* Masquer le contenu dépassant */
+    width: 300px; /* Largeur fixe */
+    text-align: center; /* Alignement du texte */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition de transformation et d'ombre */
+}
+
+.widget:hover {
+    transform: scale(1.05); /* Zoom au survol */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce au survol */
+}
+
+.widget img {
+    width: 100%; /* Largeur de l'image à 100% */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
+    transition: transform 0.3s; /* Transition de transformation */
+    cursor: pointer; /* Curseur pointeur */
+}
+
+.widget img:hover {
+    transform: scale(1.1); /* Zoom au survol de l'image */
+}
+
+.widget h3 {
+    font-size: 1.5rem; /* Taille de police */
+    color: #333; /* Couleur du texte */
+    margin: 1rem 0; /* Marge supérieure et inférieure */
+    transition: color 0.3s; /* Transition de couleur */
+}
+
+.widget h3:hover {
+    color: #f4b400; /* Couleur du texte au survol */
+}
+
+.widget p {
+    font-size: 1rem; /* Taille de police */
+    color: #666; /* Couleur du texte */
+    padding: 0 1rem 1rem 1rem; /* Rembourrage */
+    transition: color 0.3s; /* Transition de couleur */
+}
+
+.widget p:hover {
+    color: #444; /* Couleur du texte au survol */
+}
+
+footer {
+    background-color: #333; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    text-align: center; /* Alignement du texte */
+    padding: 2rem 0; /* Rembourrage */
+}
+
+footer p {
+    margin-bottom: 1rem; /* Marge inférieure */
+}
+
+footer .social-links {
+    list-style: none; /* Pas de puces */
+    display: flex; /* Utilisation d'un modèle flexbox */
+    justify-content: center; /* Centrer horizontalement */
+}
+
+footer .social-links li {
+    margin: 0 1rem; /* Marge horizontale */
+}
+
+footer .social-links li a img {
+    width: 30px; /* Largeur de l'icône */
+    transition: opacity 0.3s, transform 0.3s; /* Transition d'opacité et de transformation */
+}
+
+footer .social-links li a img:hover {
+    opacity: 0.7; /* Opacité au survol */
+    transform: scale(1.2); /* Zoom au survol */
+}
+
+nav ul li a.active {
+    color: #ff6347; /* Couleur du texte lorsque l'élément est actif */
+}
+
+/* Styles pour la modale */
+.modal {
+    display: none; /* Masquer la modale par défaut */
+    position: fixed; /* Position fixe */
+    z-index: 1; /* Z-index pour s'assurer qu'elle est au-dessus du reste */
+    padding-top: 100px; /* Espacement en haut pour laisser de l'espace pour l'en-tête */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Activer le défilement si nécessaire */
+    background-color: rgb(0, 0, 0); /* Fond noir */
+    background-color: rgba(0, 0, 0, 0.9); /* Fond noir avec opacité */
+}
+
+.modal-content {
+    background-color: #fefefe; /* Couleur de fond */
+    margin: auto; /* Centrer horizontalement */
+    padding: 20px; /* Rembourrage */
+    border: 1px solid #888; /* Bordure */
+    width: 80%; /* Largeur de la modale */
+    max-width: 700px; /* Largeur maximale */
+}
+
+.close {
+    position: absolute; /* Position absolue */
+    top: 15px; /* Distance par rapport au haut */
+    right: 35px; /* Distance par rapport à la droite */
+    color: #f1f1f1; /* Couleur du texte */
+    font-size: 40px; /* Taille de police */
+    font-weight: bold; /* Gras */
+    transition: 0.3s; /* Transition */
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb; /* Couleur du texte au survol */
+    text-decoration: none; /* Pas de soulignement */
+    cursor: pointer; /* Curseur pointeur */
+}
+
+/* Styles pour le curseur personnalisé */
+.cursor {
+    width: 30px; /* Largeur */
+    height: 30px; /* Hauteur */
+    border: 2px solid #333; /* Bordure */
+    border-radius: 50%; /* Bordure arrondie pour créer un cercle */
+    position: absolute; /* Position absolue */
+    pointer-events: none; /* Ignorer les événements de pointeur */
+    transform: translate(-50%, -50%); /* Déplacer de -50% par rapport à lui-même (centrage) */
+    transition: transform 1.9s ease; /* Transition de transformation */
+    z-index: 1000; /* Z-index pour s'assurer qu'il est au-dessus de tout le reste */
+    background-color: black; /* Couleur de fond */
+}
+
+/* Styles pour la section du menu */
+.menu-section {
+    background-color: #f9f9f9; /* Couleur de fond */
+    padding: 4rem 2rem; /* Rembourrage */
+    text-align: center; /* Alignement du texte */
+    justify-content: center; /* Centrer horizontalement */
+    
+}
+
+/* Styles pour les boutons du menu */
+.menu-buttons :hover {
+    margin-bottom: 2rem; /* Marge inférieure */
+    transform: scale(1.05); /* Zoom au survol */
+}
+
+.menu-buttons button {
+    background-color: #e09e00; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    padding: 0.75rem 1.5rem; /* Rembourrage */
+    text-decoration: none; /* Pas de soulignement */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Bordure arrondie */
+    font-weight: bold; /* Gras */
+    margin: 0 1rem; /* Marge horizontale */
+    cursor: pointer; /* Curseur pointeur */
+    transition: background-color 0.3s; /* Transition de couleur de fond */
+}
+
+.menu-buttons button:hover {
+    background-color:#e09e00; /* Couleur*/
+}
+
+.menu-buttons button:hover {
+    background-color:#e09e00; /* Couleur de fond au survol */
+}
+
+#aboutText.hidden {
+    height: 0;
+    overflow: hidden;
+}
+
+/* Styles pour la page de connexion et de création de compte */
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e09e00;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #e09e00;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #666;
+}
+
+#toggleForm {
+    display: block;
+    margin: 0 auto;
+    background-color: transparent;
+    border: none;
+    color: #999;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#toggleForm:hover {
+    color: #777;
+}
+
+/* Media query pour les petits écrans */
+@media only screen and (max-width: 600px) {
+    .modal-content {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"] {
+        font-size: 14px;
+    }
+
+    button[type="submit"] {
+        font-size: 14px;
+    }
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Styles pour le formulaire */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+form input[type="text"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form input[type="submit"] {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background: #555;
+}
+
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px; /* Add space below the title */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+select, input[type="submit"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+select {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+select:focus, input[type="submit"]:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+option {
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    select, input[type="submit"] {
+        font-size: 0.9em;
+    }
+
+    label {
+        font-size: 1em;
+    }
+}
+
+form label {
+    font-weight: bold;
+}
+
+form select,
+form input[type="submit"] {
+    padding: 10px;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+.button {
+    display: block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.9em;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+/* Style des boutons d'authentification */
+.auth-button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.auth-button:hover {
+    background-color: #45a049;
+}
+
+/* Style des widgets */
+.widget {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 40px;
+    margin-bottom: 20px;
+}
+
+/* Titre du widget */
+.widget h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Paragraphe du widget */
+.widget p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Bouton de connexion/inscription */
+.auth-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:#f4b400;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Changement de couleur au survol du bouton */
+.auth-button:hover {
+    background-color: #e09e00;
+}
+
+/* Style pour le bouton de fermeture */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ /* Styles pour le modal */
+ .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+
+
+

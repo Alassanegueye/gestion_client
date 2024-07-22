@@ -1,0 +1,644 @@
+/* Réinitialisation des marges, des rembourrages et de la boîte de modèle */
+* {
+    margin: 0; /* Aucune marge */
+    padding: 0; /* Aucun rembourrage */
+    box-sizing: border-box; /* Inclure les bordures et les rembourrages dans la largeur et la hauteur */
+}
+
+/* Styles pour le corps de la page */
+body {
+    font-family: 'Playfair Display', serif; /* Police de caractères */
+    line-height: 1.6; /* Hauteur de ligne */
+    color: #333; /* Couleur du texte */
+    background-color: #f9f9f9; /* Couleur de fond */
+}
+
+/* Styles pour l'en-tête */
+header {
+    background-color: #333; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    padding: 1rem 0; /* Rembourrage haut/bas de 1rem, aucun à gauche/droite */
+    text-align: center; /* Alignement du texte */
+}
+
+/* Styles pour la navigation */
+header nav {
+    display: flex; /* Utilisation d'un modèle flexbox */
+    justify-content: space-between; /* Espace égal entre les éléments */
+    align-items: center; /* Alignement vertical */
+    max-width: 1200px; /* Largeur maximale */
+    margin: 0 auto; /* Centrer horizontalement */
+    padding: 0 2rem; /* Rembourrage gauche/droite */
+}
+
+/* Styles pour le logo dans la navigation */
+header nav img {
+    height: 50px; /* Hauteur de l'image */
+}
+
+/* Styles pour la liste de navigation */
+header nav ul {
+    list-style: none; /* Pas de puces */
+    display: flex; /* Utilisation d'un modèle flexbox */
+}
+
+header nav ul li {
+    margin-left: 2rem; /* Marge à gauche entre les éléments de liste */
+}
+
+header nav ul li a {
+    color: #fff; /* Couleur du texte */
+    text-decoration: none; /* Pas de soulignement */
+    font-weight: bold; /* Police en gras */
+    transition: color 0.3s; /* Transition de couleur */
+}
+.button {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Menu déroulant */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 10px;
+    flex-direction: column;
+}
+
+.dropdown-content a, .dropdown-content .login-button {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.dropdown-content a:hover, .dropdown-content .login-button:hover {
+    background-color: #ddd;
+}
+
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: #e09e00; /* Couleur du texte au survol ou lorsque actif */
+}
+
+/* Styles pour la bannière */
+.banner {
+    background-color: #333; /* Couleur de fond */
+    background-size: cover; /* Redimensionner pour couvrir */
+    background-position: center; /* Position du fond */
+    color: #fff; /* Couleur du texte */
+    text-align: center; /* Alignement du texte */
+    padding: 5rem 2rem; /* Rembourrage */
+}
+
+.banner h1 {
+    font-size: 3rem; /* Taille de police */
+    margin-bottom: 1rem; /* Marge inférieure */
+    transition: color 0.3s; /* Transition de couleur */
+    opacity: 0; /* Opacité initiale */
+    transform: translateY(-20px); /* Translation vers le haut */
+    animation: fadeIn 1s forwards; /* Animation de fondu */
+    animation-delay: 0.5s; /* Délai d'animation */
+}
+
+.banner p {
+    font-size: 1.2rem; /* Taille de police */
+    margin-bottom: 2rem; /* Marge inférieure */
+    transition: color 0.3s; /* Transition de couleur */
+    opacity: 0; /* Opacité initiale */
+    transform: translateY(-20px); /* Translation vers le haut */
+    animation: fadeIn 1s forwards; /* Animation de fondu */
+    animation-delay: 1s; /* Délai d'animation */
+}
+
+.banner h1:hover,
+.banner p:hover {
+    color: #e09e00; /* Couleur du texte au survol */
+}
+
+.banner .btn {
+    background-color: #f4b400; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    padding: 0.75rem 1.5rem; /* Rembourrage */
+    text-decoration: none; /* Pas de soulignement */
+    border-radius: 5px; /* Bordure arrondie */
+    font-weight: bold; /* Police en gras */
+    transition: background-color 0.3s; /* Transition de couleur de fond */
+}
+
+.banner .btn:hover {
+    background-color: #e09e00; /* Couleur de fond au survol */
+}
+
+/* Animation pour la bannière */
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Opacité totale */
+        transform: translateY(0); /* Pas de translation */
+    }
+}
+
+/* CSS pour le modal d'authentification */
+#authModal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.widget {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    width: 48%;
+}
+
+.widget h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.widget p {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.button {
+    display: block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.9em;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+/* Style des boutons d'authentification */
+.auth-button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.auth-button:hover {
+    background-color: #45a049;
+}
+
+/* Style des widgets */
+.widget {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 40px;
+    margin-bottom: 20px;
+}
+
+/* Titre du widget */
+.widget h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Paragraphe du widget */
+.widget p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Bouton de connexion/inscription */
+.auth-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:#f4b400;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Changement de couleur au survol du bouton */
+.auth-button:hover {
+    background-color: #e09e00;
+}
+
+/* Style pour le bouton de fermeture */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Styles pour le curseur personnalisé */
+.cursor {
+    width: 30px; /* Largeur */
+    height: 30px; /* Hauteur */
+    border: 2px solid #333; /* Bordure */
+    border-radius: 50%; /* Bordure arrondie pour créer un cercle */
+    position: absolute; /* Position absolue */
+    pointer-events: none; /* Ignorer les événements de pointeur */
+    transform: translate(-50%, -50%); /* Déplacer de -50% par rapport à lui-même (centrage) */
+    transition: transform 1.9s ease; /* Transition de transformation */
+    z-index: 1000; /* Z-index pour s'assurer qu'il est au-dessus de tout le reste */
+    background-color: black; /* Couleur de fond */
+}
+
+/* Styles pour la section du menu */
+.menu-section {
+    background-color: #f9f9f9; /* Couleur de fond */
+    padding: 4rem 2rem; /* Rembourrage */
+    text-align: center; /* Alignement du texte */
+    justify-content: center; /* Centrer horizontalement */
+    
+}
+
+/* Styles pour les boutons du menu */
+.menu-buttons :hover {
+    margin-bottom: 2rem; /* Marge inférieure */
+    transform: scale(1.05); /* Zoom au survol */
+}
+
+.menu-buttons button {
+    background-color: #e09e00; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    padding: 0.75rem 1.5rem; /* Rembourrage */
+    text-decoration: none; /* Pas de soulignement */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Bordure arrondie */
+    font-weight: bold; /* Gras */
+    margin: 0 1rem; /* Marge horizontale */
+    cursor: pointer; /* Curseur pointeur */
+    transition: background-color 0.3s; /* Transition de couleur de fond */
+}
+
+.menu-buttons button:hover {
+    background-color:#e09e00; /* Couleur*/
+}
+
+.menu-buttons button:hover {
+    background-color:#e09e00; /* Couleur de fond au survol */
+}
+
+#aboutText.hidden {
+    height: 0;
+    overflow: hidden;
+}
+
+/* Styles pour la page de connexion et de création de compte */
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e09e00;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #e09e00;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #666;
+}
+
+#toggleForm {
+    display: block;
+    margin: 0 auto;
+    background-color: transparent;
+    border: none;
+    color: #999;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#toggleForm:hover {
+    color: #777;
+}
+
+/* Media query pour les petits écrans */
+@media only screen and (max-width: 600px) {
+    .modal-content {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"] {
+        font-size: 14px;
+    }
+
+    button[type="submit"] {
+        font-size: 14px;
+    }
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Styles pour le formulaire */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+form input[type="text"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form input[type="submit"] {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background: #555;
+}
+
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px; /* Add space below the title */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+select, input[type="submit"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+select {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+select:focus, input[type="submit"]:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+option {
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    select, input[type="submit"] {
+        font-size: 0.9em;
+    }
+
+    label {
+        font-size: 1em;
+    }
+}
+
+form label {
+    font-weight: bold;
+}
+
+form select,
+form input[type="submit"] {
+    padding: 10px;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+
